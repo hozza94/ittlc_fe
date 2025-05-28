@@ -27,7 +27,7 @@ export default function Home() {
           </li>
         </ol> */}
         <div>
-          안녕하세요. 오늘도 기쁜 하루되세요 ❤️
+          안녕하세요😊 오늘도 기쁜 하루되세요 ❤️
         </div>
 
         <div className="flex gap-4 items-center flex-col sm:flex-row">
