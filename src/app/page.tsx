@@ -38,7 +38,7 @@ export default function Home() {
             rel="noopener noreferrer"
           >
             <Image
-              // className="dark:invert"
+              className="invert dark:invert-0"
               src="/PhHandsPrayingFill.svg"
               alt="pray logo"
               width={20}

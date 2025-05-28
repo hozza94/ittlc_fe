@@ -13,8 +13,17 @@
 }
 
 /* 아코디언 메뉴 애니메이션 */
+/* 아코디언 메뉴의 애니메이션 속도를 다음과 같이 조정했습니다:
+
+메뉴가 닫힐 때 (기본 상태):
+max-height: 0.15초 (기존 0.3초에서 단축)
+opacity: 0.1초 (기존 0.2초에서 단축)
+메뉴가 열릴 때 (.open 클래스):
+max-height: 0.25초 (살짝 더 부드러운 느낌을 위해 약간 더 길게)
+opacity: 0.15초 (기본보다 약간 더 길게)
+이제 메뉴가 더 빠르게 반응할 것이며, 특히 닫힐 때의 지연이 줄어들어 더 반응성이 좋아졌습니다. 필요에 따라 이 값을 더 조정하고 싶으시면 말씀해 주세요! */
 .accordion-content {
-  transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+  transition: max-height 0.15s ease-out, opacity 0.1s ease-out;
   opacity: 0;
   max-height: 0;
   overflow: hidden;
@@ -23,6 +32,7 @@
 .accordion-content.open {
   opacity: 1;
   max-height: 500px; /* 적당히 큰 값으로 설정 */
+  transition: max-height 0.25s ease-in, opacity 0.15s ease-in;
 }
 
 /* 스크롤바 스타일링 */
