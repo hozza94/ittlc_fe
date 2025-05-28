@@ -12,10 +12,90 @@
   --font-mono: var(--font-geist-mono);
 }
 
+/* 아코디언 메뉴 애니메이션 */
+.accordion-content {
+  transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.accordion-content.open {
+  opacity: 1;
+  max-height: 500px; /* 적당히 큰 값으로 설정 */
+}
+
+/* 스크롤바 스타일링 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* 다크 모드 */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+  }
+  
+  .bg-white, header.bg-white {
+    background-color: #1f2937;
+    border-color: #374151;
+  }
+  
+  .text-gray-700, .text-gray-600, .text-gray-500,
+  .text-gray-600, .text-gray-900, .text-gray-700 {
+    color: #e5e7eb;
+  }
+  
+  .hover\:bg-gray-100:hover, 
+  .hover\:bg-gray-50:hover,
+  button.hover\:bg-gray-100:hover {
+    background-color: #374151;
+  }
+  
+  .bg-gray-50 {
+    background-color: #1f2937;
+  }
+  
+  .border-gray-100,
+  .border-b {
+    border-color: #374151;
+  }
+  
+  .shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+  }
+  
+  .shadow-lg {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* 다크 모드 스크롤바 */
+  ::-webkit-scrollbar-track {
+    background: #374151;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4b5563;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
   }
 }
 

@@ -1,10 +1,12 @@
 'use client'; 
 
 export default function HomePage() {
-
-    return (
-      <main style={{ padding: '2rem', textAlign: 'center' }}>
-        <h1>Hello, ITTLC!</h1>
-      </main>
-    );
+  return (
+    <div>
+      <h1 className="text-2xl font-bold mb-4 text-black">대시보드</h1>
+      <div className="bg-white p-6 rounded-lg shadow">
+        <p>환영합니다! 사이드바에서 원하는 메뉴를 선택해주세요.</p>
+      </div>
+    </div>
+  );
 }
