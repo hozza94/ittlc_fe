@@ -4,6 +4,8 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
@@ -63,13 +65,13 @@ export default function LoginPage() {
           </h2>
         </div>
         <div className="flex justify-center">
-          <a href="/">
-            <img 
+          <Link href="/">
+            <Image 
               src="/pigeon-svgrepo-com.svg" 
               alt="Pigeon logo" 
               className="w-48 h-36 object-contain dark:invert"
             />
-          </a>
+          </Link>
         </div>
         <form className="mt-8 space-y-6 max-w-sm mx-auto" onSubmit={handleSubmit}>
           {error && (
