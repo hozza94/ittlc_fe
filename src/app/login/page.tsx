@@ -69,7 +69,9 @@ export default function LoginPage() {
             <Image 
               src="/pigeon-svgrepo-com.svg" 
               alt="Pigeon logo" 
-              className="w-48 h-36 object-contain dark:invert"
+              width={192}
+              height={192}
+              className="object-contain dark:invert"
             />
           </Link>
         </div>
