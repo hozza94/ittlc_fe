@@ -8,6 +8,7 @@ const publicPaths = [
   '/_next',
   '/favicon.ico',
   '/api/auth',
+  '/register',
 ];
 
 export function middleware(request: NextRequest) {

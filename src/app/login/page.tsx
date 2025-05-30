@@ -2,7 +2,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useAuth } from '@/contexts/AuthContext';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -14,6 +14,7 @@ export default function LoginPage() {
   const [isLoading, setIsLoading] = useState(false);
   const { login } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
     // Check if user is already logged in
@@ -37,6 +38,17 @@ export default function LoginPage() {
 
     setIsLoading(true);
     setError('');
+
+    // try {
+    //   await login(email, password);
+    //   const redirectTo = searchParams.get('from') || '/main';
+    //   router.push(redirectTo);
+    // } catch (error) {
+    //   setError('이메일 또는 비밀번호가 올바르지 않습니다.');
+    //   console.error('Login error:', error);
+    // } finally {
+    //   setIsLoading(false);
+    // }
 
     try {
       const success = await login(email, password);
@@ -93,12 +105,14 @@ export default function LoginPage() {
                 autoComplete="email"
                 required
                 disabled={isLoading}
-                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm disabled:bg-gray-50 disabled:text-gray-500"
+                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 
+                rounded-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder="이메일 주소"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
+            <div className="h-3"></div>
             <div>
               <label htmlFor="password" className="sr-only">
                 비밀번호
@@ -110,7 +124,8 @@ export default function LoginPage() {
                 autoComplete="current-password"
                 required
                 disabled={isLoading}
-                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-blue-500 focus:border-blue-500 focus:z-10 sm:text-sm disabled:bg-gray-50 disabled:text-gray-500"
+                className="appearance-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900
+                rounded-md focus:outline-none focus:ring-gray-500 focus:border-gray-500 focus:z-10 sm:text-sm disabled:bg-gray-50 disabled:text-gray-500"
                 placeholder="비밀번호"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
