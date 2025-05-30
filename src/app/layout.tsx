@@ -39,12 +39,34 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <html lang="ko">
-      <body className={`${inter.variable} font-sans antialiased`}>
+  // In production, we want to catch any potential errors in the AuthProvider
+  // but we don't want it to break the entire app
+  let content = children;
+  
+  if (process.env.NODE_ENV === 'production') {
+    try {
+      content = (
         <AuthProvider>
           {children}
         </AuthProvider>
+      );
+    } catch (error) {
+      console.error('Error in AuthProvider:', error);
+      // Continue rendering without AuthProvider in case of error
+      content = children;
+    }
+  } else {
+    content = (
+      <AuthProvider>
+        {children}
+      </AuthProvider>
+    );
+  }
+
+  return (
+    <html lang="ko">
+      <body className={`${inter.variable} font-sans antialiased`}>
+        {content}
       </body>
     </html>
   );
