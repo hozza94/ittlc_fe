@@ -70,7 +70,7 @@ export default function LoginPage() {
               src="/pigeon-svgrepo-com.svg" 
               alt="Pigeon logo" 
               width={192}
-              height={144}
+              height={192}
               className="object-contain dark:invert"
             />
           </Link>
